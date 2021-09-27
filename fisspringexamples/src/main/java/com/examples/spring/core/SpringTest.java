@@ -13,7 +13,12 @@ public class SpringTest {
 		
 		// Get the Bean reference
 		Employee e = (Employee) context.getBean("emp");
-		System.out.println(e);  // object id in hexadecimal format
+		e.display();
+		System.out.println(e.hashCode());  // object id in hexadecimal format
+		
+		// Get the Bean reference
+		Employee e1 = (Employee) context.getBean("emp");
+		System.out.println(e1.hashCode());
 
 		
 		// call the bean methods
@@ -24,6 +29,9 @@ public class SpringTest {
 		
 		Person pr = (Person) context.getBean("p");
 		System.out.println(pr);
+		
+		FisEmployee f = (FisEmployee) context.getBean("fis");
+		System.out.println(f);
 		
 	}
 

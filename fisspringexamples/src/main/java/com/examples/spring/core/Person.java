@@ -15,7 +15,12 @@ public class Person {
 		return "Person [age=" + age + ", name=" + name + ", qualification=" + qualification + "]";
 	}
 	
+	public void beaninit() {
+		System.out.println("Bean is initialized");
+	}
 	
-	
+	public void destroybean() {
+		System.out.println("Bean is destroyed...");
+	}
 
 }
