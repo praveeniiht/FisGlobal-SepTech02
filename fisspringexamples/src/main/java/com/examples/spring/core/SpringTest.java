@@ -33,6 +33,10 @@ public class SpringTest {
 		FisEmployee f = (FisEmployee) context.getBean("fis");
 		System.out.println(f);
 		
+		Tutor tr = (Tutor) context.getBean("tutor");
+		System.out.println(tr.getName()+" "+tr.getExp()+" "+tr.getLanguages());
+		System.out.println(tr.getDegrees());
+		
 	}
 
 }

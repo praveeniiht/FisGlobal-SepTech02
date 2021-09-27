@@ -1,31 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- bean definitions here -->
-    
-    <bean id="emp" class="com.examples.spring.core.Employee" scope="prototype">
-    	<property name="name" value="Praveen" />
-    	<property name="desg" value="Manager" />
-    	<property name="dept" value="Finance" />
-    </bean>
-    <bean id="addr" class="com.examples.spring.core.Address">
-    	<property name="dno" value="1001" />
-    	<property name="street" value="Koramangala" />
-    	<property name="city" value="Bangalore" />
-    </bean>
-    
-    <bean id ="p" class="com.examples.spring.core.Person" init-method="beaninit" destroy-method="destroybean">
-    	<constructor-arg value="24" />
-    	<constructor-arg value="Sunil Kumar" />
-    	<constructor-arg value="BTech" />
-    </bean>
-    
-    <bean id="fis" class="com.examples.spring.core.FisEmployee">
-    	<constructor-arg value="Suresh Babu" />
-    	<constructor-arg ref="addr" />
-    </bean>
+	<!-- bean definitions here -->
+
+	<bean id="emp" class="com.examples.spring.core.Employee"
+		scope="prototype">
+		<property name="name" value="Praveen" />
+		<property name="desg" value="Manager" />
+		<property name="dept" value="Finance" />
+	</bean>
+	<bean id="addr" class="com.examples.spring.core.Address">
+		<property name="dno" value="1001" />
+		<property name="street" value="Koramangala" />
+		<property name="city" value="Bangalore" />
+	</bean>
+
+	<bean id="p" class="com.examples.spring.core.Person"
+		init-method="beaninit" destroy-method="destroybean">
+		<constructor-arg value="24" />
+		<constructor-arg value="Sunil Kumar" />
+		<constructor-arg value="BTech" />
+	</bean>
+
+	<bean id="fis" class="com.examples.spring.core.FisEmployee">
+		<constructor-arg value="Suresh Babu" />
+		<constructor-arg ref="addr" />
+	</bean>
+	<bean id="tutor" class="com.examples.spring.core.Tutor">
+		<property name="name" value="Praveen" />
+		<property name="exp" value="19" />
+		<property name="languages">
+			<list>
+				<value>Java Full Stack</value>
+				<value>Microservices</value>
+				<value>DevOps</value>
+				<value>Angualar</value>
+			</list>
+    	</property>
+    	<property name="degrees">
+			<set>
+				<value>BTech</value>
+				<value>MTech</value>
+				<value>PGDBM</value>
+				<value>MPhil</value>
+			</set>
+    	</property>
+    	
+	</bean>
 
 </beans>
