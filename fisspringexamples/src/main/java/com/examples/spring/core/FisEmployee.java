@@ -4,14 +4,45 @@ public class FisEmployee {
 	
 	String name;
 	Address address;
-	FisEmployee(String name, Address address){
-		this.name=name;
-		this.address=address;
+	Person person;
+	// remove the parametarized constructor to verify byName or byType autowirings
+	public FisEmployee(String name, Address address, Person person) {
+		super();
+		this.name = name;
+		this.address = address;
+		this.person = person;
 	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "FisEmployee [name=" + name + ", address=" + address + "]";
+		return "FisEmployee [name=" + name + ", address=" + address + ", person=" + person + "]";
 	}
+
+	
 	
 
 }

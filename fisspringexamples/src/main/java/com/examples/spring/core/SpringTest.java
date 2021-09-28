@@ -24,10 +24,10 @@ public class SpringTest {
 		// call the bean methods
 		e.display();	
 		
-		Address adr = (Address) context.getBean("addr");
+		Address adr = (Address) context.getBean("address");
 		System.out.println(adr);  // it will call toString method in the class
 		
-		Person pr = (Person) context.getBean("p");
+		Person pr = (Person) context.getBean("person");
 		System.out.println(pr);
 		
 		FisEmployee f = (FisEmployee) context.getBean("fis");
@@ -36,6 +36,7 @@ public class SpringTest {
 		Tutor tr = (Tutor) context.getBean("tutor");
 		System.out.println(tr.getName()+" "+tr.getExp()+" "+tr.getLanguages());
 		System.out.println(tr.getDegrees());
+		System.out.println(tr.getCountry());
 		
 	}
 

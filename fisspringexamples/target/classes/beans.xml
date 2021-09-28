@@ -12,23 +12,35 @@
 		<property name="desg" value="Manager" />
 		<property name="dept" value="Finance" />
 	</bean>
-	<bean id="addr" class="com.examples.spring.core.Address">
+	<bean id="address" class="com.examples.spring.core.Address">
 		<property name="dno" value="1001" />
 		<property name="street" value="Koramangala" />
 		<property name="city" value="Bangalore" />
 	</bean>
 
-	<bean id="p" class="com.examples.spring.core.Person"
+	<bean id="person" class="com.examples.spring.core.Person"
 		init-method="beaninit" destroy-method="destroybean">
 		<constructor-arg value="24" />
 		<constructor-arg value="Sunil Kumar" />
 		<constructor-arg value="BTech" />
 	</bean>
 
-	<bean id="fis" class="com.examples.spring.core.FisEmployee">
+	<bean id="fis" class="com.examples.spring.core.FisEmployee" >
 		<constructor-arg value="Suresh Babu" />
-		<constructor-arg ref="addr" />
+		<constructor-arg ref="address" />
+		<constructor-arg ref="person" />
 	</bean>
+	<!-- 
+	The below code snippet is for autorwiring by type, to implement below code make sure that
+	you class consists of getter and setter methods without constructor
+	
+	<bean id="fis" class="com.examples.spring.core.FisEmployee" autowire="byType">
+		<property name="name" value="Suresh Babu" />
+		
+	</bean>
+	
+	 -->
+	
 	<bean id="tutor" class="com.examples.spring.core.Tutor">
 		<property name="name" value="Praveen" />
 		<property name="exp" value="19" />
@@ -48,7 +60,13 @@
 				<value>MPhil</value>
 			</set>
     	</property>
-    	
-	</bean>
+    	<property name="country">
+			<map>
+				<entry key="MH" value="Maharastra" />
+				<entry key="AP" value="Andhra Pradesh" />
+				<entry key="TN" value="Tamilnadu" />
+			</map>
+    	</property>
+ 	</bean>
 
 </beans>

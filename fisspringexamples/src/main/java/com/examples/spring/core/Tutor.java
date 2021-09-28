@@ -6,8 +6,15 @@ public class Tutor {
 	int exp;
 	List<String> languages;
 	Set<String> degrees;
+	Map<String,String> country;
 	
 	
+	public Map<String, String> getCountry() {
+		return country;
+	}
+	public void setCountry(Map<String, String> country) {
+		this.country = country;
+	}
 	public Set<String> getDegrees() {
 		return degrees;
 	}
