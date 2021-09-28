@@ -6,13 +6,6 @@ public class FisEmployee {
 	Address address;
 	Person person;
 	// remove the parametarized constructor to verify byName or byType autowirings
-	public FisEmployee(String name, Address address, Person person) {
-		super();
-		this.name = name;
-		this.address = address;
-		this.person = person;
-	}
-
 	public Person getPerson() {
 		return person;
 	}

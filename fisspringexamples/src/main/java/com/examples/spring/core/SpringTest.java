@@ -9,7 +9,8 @@ public class SpringTest {
 		
 		// first create a spring IOC container
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		ClassPathXmlApplicationContext context = 
+				new ClassPathXmlApplicationContext("beans.xml");
 		
 		// Get the Bean reference
 		Employee e = (Employee) context.getBean("emp");
@@ -24,10 +25,10 @@ public class SpringTest {
 		// call the bean methods
 		e.display();	
 		
-		Address adr = (Address) context.getBean("address");
+		Address adr = (Address) context.getBean("addr");
 		System.out.println(adr);  // it will call toString method in the class
 		
-		Person pr = (Person) context.getBean("person");
+		Person pr = (Person) context.getBean("p");
 		System.out.println(pr);
 		
 		FisEmployee f = (FisEmployee) context.getBean("fis");
