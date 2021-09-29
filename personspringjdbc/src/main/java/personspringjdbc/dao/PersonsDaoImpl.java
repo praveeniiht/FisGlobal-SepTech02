@@ -40,5 +40,19 @@ public class PersonsDaoImpl implements PersonsDao{
 		return persons;
 	
 	}
+
+	public Persons searchPerson(String name) {
+		// TODO Auto-generated method stub
+		Persons temp=null;
+		String sql = "select * from Persons";
+		List<Persons> persons = template.query(sql, new PersonRowMapper());
+		for(Persons p:persons) {
+			if(p.getName().equals(name)) {
+				temp =p;
+				break;
+			}
+		}
+		return temp;
+	}
 	
 }

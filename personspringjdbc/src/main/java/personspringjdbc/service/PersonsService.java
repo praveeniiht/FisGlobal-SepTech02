@@ -7,5 +7,6 @@ public interface PersonsService {
 	public Persons insertPerson(Persons person);
 	public List<Persons> displayPersons();
 	public String deletePerson(String name);
+	public Persons searchPerson(String name);
 
 }

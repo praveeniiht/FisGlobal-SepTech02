@@ -33,4 +33,9 @@ public class PersonsServiceImpl implements PersonsService{
 		return repo.deletePerson(name);
 	}
 
+	public Persons searchPerson(String name) {
+		// TODO Auto-generated method stub
+		return repo.searchPerson(name);
+	}
+
 }
