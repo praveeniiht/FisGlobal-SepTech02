@@ -21,6 +21,14 @@ public class HomeController {
 	
 	@Autowired
 	UserDaoImpl userDaoImpl;
+	
+	@RequestMapping(value="/insertData")
+	public ModelAndView insertData(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		String uname = request.getParameter("tuser");
+		String pwd = request.getParameter("tpasswrod");
+		String result = userDaoImpl.insertUser(new Users(uname,pwd));
+		return new ModelAndView("temp","result",result);
+	}
 
 	@RequestMapping(value="/")
 	public ModelAndView test(HttpServletResponse response) throws IOException{
@@ -43,7 +51,7 @@ public class HomeController {
 		
 		
 		if(isFound)
-				return new ModelAndView("success","username",uname);
+				return new ModelAndView("success","users",users);
 		else
 			return new ModelAndView("fail");
 	}
@@ -51,5 +59,15 @@ public class HomeController {
 	@RequestMapping("/test2")
 	public String test2() {
 		return "home2";
+	}
+	
+	@RequestMapping("/homepage")
+	public String homepage() {
+		return "home";
+	}
+	
+	@RequestMapping("/register")
+	public String register() {
+		return "register";
 	}
 }
