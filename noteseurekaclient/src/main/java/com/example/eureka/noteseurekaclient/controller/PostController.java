@@ -1,5 +1,6 @@
 package com.example.eureka.noteseurekaclient.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.example.eureka.noteseurekaclient.model.Comments;
 import com.example.eureka.noteseurekaclient.model.Posts;
 import com.example.eureka.noteseurekaclient.service.PostService;
@@ -65,6 +66,7 @@ public class PostController {
 	}
 	
 	@GetMapping("/comments/{pid}")
+	@HystrixCommand(fallbackMethod = "sendDummyData")
 	public ResponseEntity<List<Comments>> getAllCommentsByPid(@PathVariable("pid") int pid){
 		return new ResponseEntity(postService.searchCommentsByPid(pid), HttpStatus.OK);
 	}
@@ -73,4 +75,15 @@ public class PostController {
 	public ResponseEntity<Posts> getPostById(@PathVariable("pid") int pid){
 		return new ResponseEntity(postService.getPostsById(pid), HttpStatus.OK);
 	}
+	
+	public ResponseEntity<List<Comments>> sendDummyData(@PathVariable int postId){
+		Comments comment1 = new Comments(7,"kishore kumar",5,"need more on java");
+		Comments comment2 = new Comments(9,"sunil krishna",6,"very basic info");
+		List<Comments> data = new ArrayList();
+		data.add(comment1);
+		data.add(comment2);
+		return new ResponseEntity(data, HttpStatus.OK);
+	}
+	
+	
 }

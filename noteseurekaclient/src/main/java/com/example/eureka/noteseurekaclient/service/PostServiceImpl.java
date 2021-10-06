@@ -7,11 +7,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
+import com.netflix.hystrix.HystrixCommand;
 import com.example.eureka.noteseurekaclient.dao.PostsDao;
 import com.example.eureka.noteseurekaclient.model.Comments;
 import com.example.eureka.noteseurekaclient.model.Posts;
-
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 
 @Service
@@ -80,6 +80,11 @@ public class PostServiceImpl implements PostService{
 		return data;
 	}
 
+	public List<Comments> sendDummyData(){
+		List<Comments> temp = new ArrayList();
+		temp.add(new Comments(901,"kamal",101,"this is dummy data"));
+		return temp;
+	}
 	@Override
 	public Optional<Posts> getPostsById(int id) {
 		// TODO Auto-generated method stub
