@@ -1,0 +1,17 @@
+server:
+  port: 8084
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: postservice
+        uri: http://localhost:8082/
+        predicates:
+        - Path=/posts/**
+        
+      - id: commentservice
+        uri: http://localhost:8083/
+        predicates:
+        - Path=/comments/**
+     
