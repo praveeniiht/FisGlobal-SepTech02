@@ -1,0 +1,16 @@
+services:
+   eureka:
+     image: eurekaimage
+     ports:
+     - 8762:8761
+   mservice1:
+     image: service1
+     ports:
+     - 9090:9090
+   mservice2:
+     image: service2
+     ports:
+     - 9091:9091
+   lang:
+     image: python
+     
