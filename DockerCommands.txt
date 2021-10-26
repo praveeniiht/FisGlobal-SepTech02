@@ -1,0 +1,77 @@
+1. docker version  - will displays the version of docker installed
+
+2. docker images    -- This will lists all the images available in your machine
+
+3. docker ps    -- This will lists the running containers
+
+4. docker ps -a  --displays all containers ie running / stopped / created
+
+5. docker stop <containername>   -- to stop the running container
+
+6. docker start <containername/id>  -- to start the stopped container
+
+6. docker rm (-f) <containername/id>   -- to remove a container	
+   we have to use -f if we want to remove the running container.
+
+7. docker rmi <imagename/id>  -- To remove the docker images
+
+Note: we cannot remove the image if any of its container exists
+
+8. docker run <imagename/id>  -- to start the image in a new container
+
+   docker run -d -i -t -n <containername> -p 8081:8080 myimage
+  
+9. docker exec -it <containername> /bin/bash
+
+10. docker inspect <containername>
+
+11. docker logs <containername>
+
+12. docker history <containername>
+
+13. docker build -t <imagename> .
+
+
+  
+Dockerfile commands
+--------------------
+
+1. FROM   -- Specifies the base image
+
+2. MAINTAINER -- specifies the author
+
+3. ADD  -- This commands adds the data/files from hostmachine to container.
+
+4. RUN -- This command is used to execute any script statements
+
+5. CMD -- this command is used to execute any command line arguments.
+
+6. EXPOSE -- This command is used to expose the ports
+
+7. ENV -- This is used to set the environment variables
+
+8. WORKDIR  -- this is used to set the working directory.
+
+9. COPY	 -- this will also copies the data/files from hostsmachine to container
+
+10. VOLUME -- This will mount the host machine space to container
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
